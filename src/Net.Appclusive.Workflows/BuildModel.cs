@@ -15,13 +15,14 @@
  */
 
 using System.Activities;
+using System.Activities.Tracking;
 using System.Diagnostics.Contracts;
 using biz.dfch.CS.Commons;
 using Net.Appclusive.Public.Messaging;
 
 namespace Net.Appclusive.Workflows
 {
-    public sealed class BuildModel : CodeActivity
+    public sealed class BuildModel : NativeActivity<DictionaryParameters>
     {
         [RequiredArgument]
         public InArgument<long> ParentItemId { get; set; }
@@ -34,7 +35,7 @@ namespace Net.Appclusive.Workflows
 
         // If your activity returns a value, derive from CodeActivity<TResult>
         // and return the value from the Execute method.
-        protected override void Execute(CodeActivityContext context)
+        protected override void Execute(NativeActivityContext context)
         {
             Contract.Assert(null != context);
 
