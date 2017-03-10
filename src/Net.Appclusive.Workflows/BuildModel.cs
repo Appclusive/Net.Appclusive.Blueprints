@@ -16,6 +16,7 @@
 
 using System.Activities;
 using System.Activities.Tracking;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using biz.dfch.CS.Commons;
 using Net.Appclusive.Public.Messaging;
@@ -60,9 +61,31 @@ namespace Net.Appclusive.Workflows
             var messagingClient = IoC.IoC.DefaultContainer.GetInstance<IMessagingClient>();
             messagingClient.SendMessage("Arbitrary", message);
 
-
+            var trackRecord = new CustomTrackingRecord(context.WorkflowInstanceId, "hotzenhausen", TraceLevel.Info);
+            trackRecord.Data[nameof(ParentItemId)] = ParentItemId;
+            trackRecord.Data[nameof(ModelName)] = modelName;
+            trackRecord.Data[nameof(Configuration)] = configuration;
+            context.Track(trackRecord);
             // DFTODO - wait for completion
-            // DFTODO - return result
+
+            var name = string.Concat(context.WorkflowInstanceId, "-", context.ActivityInstanceId);
+
+            context.CreateBookmark(name, new BookmarkCallback(OnResumeBookmark), BookmarkOptions.None);
+
+            var x = 42L;
+        }
+
+        protected override bool CanInduceIdle
+        {
+            get { return true; }
+        }
+
+        public void OnResumeBookmark(NativeActivityContext context, Bookmark bookmark, object obj)
+        {
+            // When the Bookmark is resumed, assign its value to  
+            // the Result argument.  
+            Result.Set(context, obj);
+            
         }
     }
 }
