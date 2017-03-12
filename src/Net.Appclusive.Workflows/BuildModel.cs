@@ -20,6 +20,7 @@ using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using biz.dfch.CS.Commons;
 using Net.Appclusive.Public.Messaging;
+using Net.Appclusive.Workflows.Public;
 
 namespace Net.Appclusive.Workflows
 {
@@ -33,6 +34,8 @@ namespace Net.Appclusive.Workflows
 
         [RequiredArgument]
         public InArgument<DictionaryParameters> Configuration { get; set; }
+
+        protected override bool CanInduceIdle => true;
 
         // If your activity returns a value, derive from CodeActivity<TResult>
         // and return the value from the Execute method.
@@ -55,27 +58,20 @@ namespace Net.Appclusive.Workflows
                 ModelName = modelName,
                 Configuration = configuration
             };
-
             var message = new Message(new DefaultMessageHeader(), body);
-
             var messagingClient = IoC.IoC.DefaultContainer.GetInstance<IMessagingClient>();
             messagingClient.SendMessage("Arbitrary", message);
 
-            var trackRecord = new CustomTrackingRecord(context.WorkflowInstanceId, "hotzenhausen", TraceLevel.Info);
-            trackRecord.Data[nameof(ParentItemId)] = ParentItemId;
-            trackRecord.Data[nameof(ModelName)] = modelName;
-            trackRecord.Data[nameof(Configuration)] = configuration;
-            context.Track(trackRecord);
-            // DFTODO - wait for completion
+            context.Track(new BuildModelTrackingRecord(context.WorkflowInstanceId)
+            {
+                ParentItemId = parentItemId,
+                ModelName = modelName,
+                Configuration = configuration,
+            });
 
             var name = string.Concat(context.WorkflowInstanceId, "-", context.ActivityInstanceId);
-
-            context.CreateBookmark(name, new BookmarkCallback(OnResumeBookmark), BookmarkOptions.None);
-
-            var x = 42L;
+            context.CreateBookmark(name, OnResumeBookmark, BookmarkOptions.None);
         }
-
-        protected override bool CanInduceIdle => true;
 
         public void OnResumeBookmark(NativeActivityContext context, Bookmark bookmark, object obj)
         {
