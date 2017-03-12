@@ -22,7 +22,7 @@ using Net.Appclusive.Workflows.Public;
 
 namespace Net.Appclusive.Workflows
 {
-    public sealed class BuildModel : NativeActivity<DictionaryParameters>
+    public sealed class BuildModel : NativeActivity<DictionaryParameters>, IBuildModel
     {
         [RequiredArgument]
         public InArgument<long> ParentItemId { get; set; }
