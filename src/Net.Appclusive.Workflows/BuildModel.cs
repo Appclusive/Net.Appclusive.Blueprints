@@ -67,8 +67,11 @@ namespace Net.Appclusive.Workflows
                 Configuration = configuration,
             });
 
-            var name = string.Concat(context.WorkflowInstanceId, "-", context.ActivityInstanceId);
-            context.CreateBookmark(name, OnResumeBookmark, BookmarkOptions.None);
+            context.CreateBookmark
+            (
+                WorkflowUtilities.GetBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId),
+                OnResumeBookmark
+            );
         }
 
         public void OnResumeBookmark(NativeActivityContext context, Bookmark bookmark, object obj)
