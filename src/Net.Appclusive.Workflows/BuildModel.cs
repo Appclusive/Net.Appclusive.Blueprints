@@ -75,10 +75,7 @@ namespace Net.Appclusive.Workflows
             var x = 42L;
         }
 
-        protected override bool CanInduceIdle
-        {
-            get { return true; }
-        }
+        protected override bool CanInduceIdle => true;
 
         public void OnResumeBookmark(NativeActivityContext context, Bookmark bookmark, object obj)
         {
