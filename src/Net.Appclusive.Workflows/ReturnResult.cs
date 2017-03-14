@@ -17,7 +17,6 @@
 using System.Activities;
 using System.Diagnostics.Contracts;
 using biz.dfch.CS.Commons;
-using Net.Appclusive.Public.Messaging;
 using Net.Appclusive.Workflows.Public;
 
 namespace Net.Appclusive.Workflows
