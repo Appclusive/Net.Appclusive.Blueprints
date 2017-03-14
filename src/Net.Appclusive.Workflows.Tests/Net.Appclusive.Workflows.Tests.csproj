@@ -177,10 +177,6 @@
     <Compile Include="Test\TestCodeContractsTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Net.Appclusive.Public\src\Net.Appclusive.Public\Net.Appclusive.Public.csproj">
-      <Project>{5ed5a163-5cbf-4a5b-913a-51bce3e1b6da}</Project>
-      <Name>Net.Appclusive.Public</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Net.Appclusive.Workflows.Design\Net.Appclusive.Workflows.Design.csproj">
       <Project>{4f8fb1ba-f18f-4fd7-b15d-c13bde230697}</Project>
       <Name>Net.Appclusive.Workflows.Design</Name>

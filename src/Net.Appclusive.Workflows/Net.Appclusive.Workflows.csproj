@@ -166,10 +166,6 @@
     <EmbeddedResource Include="build-model.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Net.Appclusive.Public\src\Net.Appclusive.Public\Net.Appclusive.Public.csproj">
-      <Project>{5ed5a163-5cbf-4a5b-913a-51bce3e1b6da}</Project>
-      <Name>Net.Appclusive.Public</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Net.Appclusive.Workflows.Public\Net.Appclusive.Workflows.Public.csproj">
       <Project>{ca5cc367-8756-4475-980b-e7f04d33cd9c}</Project>
       <Name>Net.Appclusive.Workflows.Public</Name>
