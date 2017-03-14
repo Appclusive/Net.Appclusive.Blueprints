@@ -85,19 +85,6 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <local:Sleeper sap2010:WorkflowViewState.IdRef="Sleeper_3" Seconds="60" />
-    <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
-      <Assign.To>
-        <OutArgument x:TypeArguments="bdcc:DictionaryParameters">
-          <mca:CSharpReference x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpReference>
-        </OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="bdcc:DictionaryParameters">
-          <mca:CSharpValue x:TypeArguments="bdcc:DictionaryParameters">transformedConfiguration</mca:CSharpValue>
-        </InArgument>
-      </Assign.Value>
-    </Assign>
     <Parallel sap2010:WorkflowViewState.IdRef="Parallel_1">
       <local:BuildModel DisplayName="BuildModel1" sap2010:WorkflowViewState.IdRef="BuildModel_1">
         <local:BuildModel.Configuration>
@@ -186,14 +173,12 @@
         </InArgument>
       </local:ReturnResult.ParentItemId>
     </local:ReturnResult>
-    <sads:DebugSymbol.Symbol>d1RDOlxzcmNcTmV0LkFwcGNsdXNpdmUuQmx1ZXByaW50c1xzcmNcTmV0LkFwcGNsdXNpdmUuV29ya2Zsb3dzXFJlY3RhbmdsZUFjdGl2aXR5LnhhbWwnOAO+AQ4CAQE9BUgOAgF/SQVXDgIBclgFWE8CAXBZBWQOAgFjZQWQARACATORAQWVARECASyWAQWrARACARWsAQW8ARoCAQJFC0VnAwGGAUALQHoDAYABUQtUFQIBeUwLTHoCAXNYSFhMAgFxYQthcgIBalwLXG8CAWRmB3YaAgFQdwePARICATSTAQmTAYwBAgEtlwEHqQESAgEYqgEHqgFRAgEWuQELuQFUAgEPtAELtAFSAgEJrwELrwFnAgEDcw1zVgIBXW4NblQCAVdpDWlpAgFReAl4UwIBTnkJjgEcAgE1mAEJqAEcAgEZqgFKqgFOAgEXeEx4UAIBT4YBD4YBWAIBSIEBD4EBVgIBQosBD4sBdgIBPHwPfGsCATalAQ+lAVgCASagAQ+gAVYCASCbAQ+bAWsCARo=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d1RDOlxzcmNcTmV0LkFwcGNsdXNpdmUuQmx1ZXByaW50c1xzcmNcTmV0LkFwcGNsdXNpdmUuV29ya2Zsb3dzXFJlY3RhbmdsZUFjdGl2aXR5LnhhbWwiOAOxAQ4CAQE9BUgOAgFwSQVXDgIBY1gFgwEQAgEzhAEFiAERAgEsiQEFngEQAgEVnwEFrwEaAgECRQtFZwIBd0ALQHoCAXFRC1QVAgFqTAtMegIBZFkHaRoCAVBqB4IBEgIBNIYBCYYBjAECAS2KAQecARICARidAQedAVECARasAQusAVQCAQ+nAQunAVICAQmiAQuiAWcCAQNmDWZWAgFdYQ1hVAIBV1wNXGkCAVFrCWtTAgFObAmBARwCATWLAQmbARwCARmdAUqdAU4CARdrTGtQAgFPeQ95WAIBSHQPdFYCAUJ+D352AgE8bw9vawIBNpgBD5gBWAIBJpMBD5MBVgIBII4BD44BawIBGg==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="576,62" />
       <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="576,62" />
-      <sap2010:ViewStateData Id="Sleeper_3" sap:VirtualizedContainerService.HintSize="576,22" />
-      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="576,62" />
       <sap2010:ViewStateData Id="BuildModel_1" sap:VirtualizedContainerService.HintSize="200,208" />
       <sap2010:ViewStateData Id="Sleeper_1" sap:VirtualizedContainerService.HintSize="200,22" />
       <sap2010:ViewStateData Id="BuildModel_2" sap:VirtualizedContainerService.HintSize="200,22" />
@@ -217,14 +202,14 @@
       <sap2010:ViewStateData Id="Sleeper_2" sap:VirtualizedContainerService.HintSize="200,146" />
       <sap2010:ViewStateData Id="Parallel_2" sap:VirtualizedContainerService.HintSize="576,192" />
       <sap2010:ViewStateData Id="ReturnResult_1" sap:VirtualizedContainerService.HintSize="576,22" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="598,1142">
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="598,978">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Net.Appclusive.Examples.RectangleActivity_1" sap:VirtualizedContainerService.HintSize="638,1222" />
+      <sap2010:ViewStateData Id="Net.Appclusive.Examples.RectangleActivity_1" sap:VirtualizedContainerService.HintSize="638,1058" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
