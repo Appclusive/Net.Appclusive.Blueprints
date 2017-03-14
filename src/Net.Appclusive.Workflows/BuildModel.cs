@@ -78,8 +78,14 @@ namespace Net.Appclusive.Workflows
         public void OnResumeBookmark(NativeActivityContext context, Bookmark bookmark, object obj)
         {
             // When the Bookmark is resumed, assign its value to  
-            // the Result argument.  
-            Result.Set(context, obj);
+            // the Result argument.
+
+            var result = obj as DictionaryParameters ?? new DictionaryParameters
+            {
+                { "key1", "value1" },
+                { "key2", 42L },
+            };
+            Result.Set(context, result);
             
         }
     }
