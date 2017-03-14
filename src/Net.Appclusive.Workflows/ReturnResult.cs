@@ -15,21 +15,34 @@
  */
 
 using System.Activities;
+using System.Diagnostics.Contracts;
+using biz.dfch.CS.Commons;
+using Net.Appclusive.Public.Messaging;
+using Net.Appclusive.Workflows.Public;
 
 namespace Net.Appclusive.Workflows
 {
-
-    public sealed class Sleeper : CodeActivity
+    public sealed class ReturnResult : NativeActivity, IBuildModel
     {
-        // Define an activity input argument of type string
-        public InArgument<int> Seconds { get; set; }
+        [RequiredArgument]
+        public InArgument<long> ParentItemId { get; set; }
+
+        [RequiredArgument]
+        public InArgument<string> ModelName { get; set; }
+
+        [RequiredArgument]
+        public InArgument<DictionaryParameters> Configuration { get; set; }
 
         // If your activity returns a value, derive from CodeActivity<TResult>
         // and return the value from the Execute method.
-        protected override void Execute(CodeActivityContext context)
+        protected override void Execute(NativeActivityContext context)
         {
-            var seconds = context.GetValue(Seconds);
-            System.Threading.Thread.Sleep(seconds * 1000);
+            Contract.Assert(null != context);
+
+            context.Track(new ReturnResultTrackingRecord(context.WorkflowInstanceId)
+            {
+                Result = "this is the end",
+            });
         }
     }
 }

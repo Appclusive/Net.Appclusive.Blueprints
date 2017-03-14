@@ -50,18 +50,20 @@ namespace Net.Appclusive.Workflows
             var configuration = context.GetValue(Configuration);
             Contract.Assert(null != configuration);
 
-            var body = new BuildModelMessageBody()
-            {
-                ParentItemId = parentItemId,
-                ModelName = modelName,
-                Configuration = configuration
-            };
-            var message = new Message(new DefaultMessageHeader(), body);
-            var messagingClient = IoC.IoC.DefaultContainer.GetInstance<IMessagingClient>();
-            messagingClient.SendMessage("Arbitrary", message);
+            //var body = new BuildModelMessageBody()
+            //{
+            //    ParentItemId = parentItemId,
+            //    ModelName = modelName,
+            //    Configuration = configuration
+            //};
+            //var message = new Message(new DefaultMessageHeader(), body);
+            //var messagingClient = IoC.IoC.DefaultContainer.GetInstance<IMessagingClient>();
+            //messagingClient.SendMessage("Arbitrary", message);
 
+            var name = WorkflowUtilities.GetBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId);
             context.Track(new BuildModelTrackingRecord(context.WorkflowInstanceId)
             {
+                BookmarkName = name,
                 ParentItemId = parentItemId,
                 ModelName = modelName,
                 Configuration = configuration,
@@ -69,7 +71,7 @@ namespace Net.Appclusive.Workflows
 
             context.CreateBookmark
             (
-                WorkflowUtilities.GetBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId),
+                name,
                 OnResumeBookmark
             );
         }

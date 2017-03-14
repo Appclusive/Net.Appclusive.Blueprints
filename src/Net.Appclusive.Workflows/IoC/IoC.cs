@@ -22,7 +22,6 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using biz.dfch.CS.Commons.Diagnostics;
-using Net.Appclusive.Public.Domain;
 using Net.Appclusive.Workflows.IoC.Registries;
 using StructureMap;
 

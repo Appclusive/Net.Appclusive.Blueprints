@@ -21,6 +21,17 @@ using biz.dfch.CS.Commons;
 
 namespace Net.Appclusive.Workflows.Public
 {
+    public class ReturnResultTrackingRecord : CustomTrackingRecord
+    {
+        public ReturnResultTrackingRecord(Guid instanceId)
+            : base(instanceId, typeof(ReturnResultTrackingRecord).FullName, TraceLevel.Info)
+        {
+            // N/A
+        }
+
+        public string Result { get; set; }
+    }
+        
     public class BuildModelTrackingRecord : CustomTrackingRecord
     {
         public BuildModelTrackingRecord(Guid instanceId)
@@ -28,6 +39,8 @@ namespace Net.Appclusive.Workflows.Public
         {
             // N/A
         }
+
+        public string BookmarkName { get; set; }
 
         public long ParentItemId { get; set; }
 
