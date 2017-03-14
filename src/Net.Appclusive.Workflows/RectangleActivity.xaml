@@ -1,0 +1,215 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Net.Appclusive.Examples.RectangleActivity"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:bdcc="clr-namespace:biz.dfch.CS.Commons;assembly=biz.dfch.CS.Commons"
+ xmlns:local="clr-namespace:Net.Appclusive.Workflows;assembly=Net.Appclusive.Workflows"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ParentItemId" Type="InArgument(x:Int64)" />
+    <x:Property Name="ModelName" Type="InArgument(x:String)" />
+    <x:Property Name="Configuration" Type="InArgument(bdcc:DictionaryParameters)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>Net.Appclusive.Examples.RectangleActivity_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>biz.dfch.CS.Commons</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>biz.dfch.CS.Commons</AssemblyReference>
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>StructureMap</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Annotations</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.DataAnnotations</AssemblyReference>
+      <AssemblyReference>System.Configuration</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Net.Appclusive.Public</AssemblyReference>
+      <AssemblyReference>Net.Appclusive.Workflows.Public</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Net.Appclusive.Workflows</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="StartSequence" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="bdcc:DictionaryParameters" Name="buildModelResult" />
+      <Variable x:TypeArguments="bdcc:DictionaryParameters" Name="transformedConfiguration" />
+    </Sequence.Variables>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpReference x:TypeArguments="bdcc:DictionaryParameters">transformedConfiguration</mca:CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpValue x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpReference x:TypeArguments="bdcc:DictionaryParameters">transformedConfiguration</mca:CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpValue x:TypeArguments="bdcc:DictionaryParameters" xml:space="preserve">new DictionaryParameters(transformedConfiguration)
+{
+    { "tralala" , 667L }
+};</mca:CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Parallel sap2010:WorkflowViewState.IdRef="Parallel_1">
+      <local:BuildModel DisplayName="BuildModel1" sap2010:WorkflowViewState.IdRef="BuildModel_1">
+        <local:BuildModel.Configuration>
+          <InArgument x:TypeArguments="bdcc:DictionaryParameters">
+            <mca:CSharpValue x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpValue>
+          </InArgument>
+        </local:BuildModel.Configuration>
+        <local:BuildModel.ModelName>
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">ModelName</mca:CSharpValue>
+          </InArgument>
+        </local:BuildModel.ModelName>
+        <local:BuildModel.ParentItemId>
+          <InArgument x:TypeArguments="x:Int64">
+            <mca:CSharpValue x:TypeArguments="x:Int64">ParentItemId</mca:CSharpValue>
+          </InArgument>
+        </local:BuildModel.ParentItemId>
+      </local:BuildModel>
+      <Sequence DisplayName="Sequence2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <local:Sleeper sap2010:WorkflowViewState.IdRef="Sleeper_1" Seconds="10" />
+        <local:BuildModel DisplayName="BuildModel2" sap2010:WorkflowViewState.IdRef="BuildModel_2">
+          <local:BuildModel.Configuration>
+            <InArgument x:TypeArguments="bdcc:DictionaryParameters">
+              <mca:CSharpValue x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpValue>
+            </InArgument>
+          </local:BuildModel.Configuration>
+          <local:BuildModel.ModelName>
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String">ModelName</mca:CSharpValue>
+            </InArgument>
+          </local:BuildModel.ModelName>
+          <local:BuildModel.ParentItemId>
+            <InArgument x:TypeArguments="x:Int64">
+              <mca:CSharpValue x:TypeArguments="x:Int64">ParentItemId</mca:CSharpValue>
+            </InArgument>
+          </local:BuildModel.ParentItemId>
+          <local:BuildModel.Result>
+            <OutArgument x:TypeArguments="bdcc:DictionaryParameters">
+              <mca:CSharpReference x:TypeArguments="bdcc:DictionaryParameters">buildModelResult</mca:CSharpReference>
+            </OutArgument>
+          </local:BuildModel.Result>
+        </local:BuildModel>
+      </Sequence>
+    </Parallel>
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1">
+      <InArgument x:TypeArguments="x:String">
+        <mca:CSharpValue x:TypeArguments="x:String">buildModelResult.GetOrDefault("modelName","defaultValue").ToString();</mca:CSharpValue>
+      </InArgument>
+    </WriteLine>
+    <Parallel sap2010:WorkflowViewState.IdRef="Parallel_2">
+      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <local:BuildModel DisplayName="BuildModel Last" sap2010:WorkflowViewState.IdRef="BuildModel_4">
+          <local:BuildModel.Configuration>
+            <InArgument x:TypeArguments="bdcc:DictionaryParameters">
+              <mca:CSharpValue x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpValue>
+            </InArgument>
+          </local:BuildModel.Configuration>
+          <local:BuildModel.ModelName>
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String">ModelName</mca:CSharpValue>
+            </InArgument>
+          </local:BuildModel.ModelName>
+          <local:BuildModel.ParentItemId>
+            <InArgument x:TypeArguments="x:Int64">
+              <mca:CSharpValue x:TypeArguments="x:Int64">ParentItemId</mca:CSharpValue>
+            </InArgument>
+          </local:BuildModel.ParentItemId>
+        </local:BuildModel>
+      </Sequence>
+      <local:Sleeper sap2010:WorkflowViewState.IdRef="Sleeper_2" Seconds="10" />
+    </Parallel>
+    <local:ReturnResult sap2010:WorkflowViewState.IdRef="ReturnResult_1">
+      <local:ReturnResult.Configuration>
+        <InArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpValue x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpValue>
+        </InArgument>
+      </local:ReturnResult.Configuration>
+      <local:ReturnResult.ModelName>
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">ModelName</mca:CSharpValue>
+        </InArgument>
+      </local:ReturnResult.ModelName>
+      <local:ReturnResult.ParentItemId>
+        <InArgument x:TypeArguments="x:Int64">
+          <mca:CSharpValue x:TypeArguments="x:Int64">ParentItemId</mca:CSharpValue>
+        </InArgument>
+      </local:ReturnResult.ParentItemId>
+    </local:ReturnResult>
+    <sads:DebugSymbol.Symbol>d1RDOlxzcmNcTmV0LkFwcGNsdXNpdmUuQmx1ZXByaW50c1xzcmNcTmV0LkFwcGNsdXNpdmUuV29ya2Zsb3dzXFJlY3RhbmdsZUFjdGl2aXR5LnhhbWwiOAOxAQ4CAQE9BUgOAgFwSQVXDgIBY1gFgwEQAgEzhAEFiAERAgEsiQEFngEQAgEVnwEFrwEaAgECRQtFZwIBd0ALQHoCAXFRC1QVAgFqTAtMegIBZFkHaRoCAVBqB4IBEgIBNIYBCYYBjAECAS2KAQecARICARidAQedAVECARasAQusAVQCAQ+nAQunAVICAQmiAQuiAWcCAQNmDWZWAgFdYQ1hVAIBV1wNXGkCAVFrCWtTAgFObAmBARwCATWLAQmbARwCARmdAUqdAU4CARdrTGtQAgFPeQ95WAIBSHQPdFYCAUJ+D352AgE8bw9vawIBNpgBD5gBWAIBJpMBD5MBVgIBII4BD44BawIBGg==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="576,62" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="576,62" />
+      <sap2010:ViewStateData Id="BuildModel_1" sap:VirtualizedContainerService.HintSize="200,208" />
+      <sap2010:ViewStateData Id="Sleeper_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="BuildModel_2" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222,208">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Parallel_1" sap:VirtualizedContainerService.HintSize="576,254" />
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="576,62" />
+      <sap2010:ViewStateData Id="BuildModel_4" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="222,146">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sleeper_2" sap:VirtualizedContainerService.HintSize="200,146" />
+      <sap2010:ViewStateData Id="Parallel_2" sap:VirtualizedContainerService.HintSize="576,192" />
+      <sap2010:ViewStateData Id="ReturnResult_1" sap:VirtualizedContainerService.HintSize="576,22" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="598,978">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Net.Appclusive.Examples.RectangleActivity_1" sap:VirtualizedContainerService.HintSize="638,1058" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

@@ -15,14 +15,13 @@
  */
 
 using System.Activities;
-using System.Activities.Tracking;
 using System.Diagnostics.Contracts;
 using biz.dfch.CS.Commons;
-using Net.Appclusive.Public.Messaging;
+using Net.Appclusive.Workflows.Public;
 
 namespace Net.Appclusive.Workflows
 {
-    public sealed class BuildModel : NativeActivity<DictionaryParameters>
+    public sealed class BuildModel : NativeActivity<DictionaryParameters>, IBuildModel
     {
         [RequiredArgument]
         public InArgument<long> ParentItemId { get; set; }
@@ -32,6 +31,8 @@ namespace Net.Appclusive.Workflows
 
         [RequiredArgument]
         public InArgument<DictionaryParameters> Configuration { get; set; }
+
+        protected override bool CanInduceIdle => true;
 
         // If your activity returns a value, derive from CodeActivity<TResult>
         // and return the value from the Execute method.
@@ -48,21 +49,34 @@ namespace Net.Appclusive.Workflows
             var configuration = context.GetValue(Configuration);
             Contract.Assert(null != configuration);
 
-            var body = new BuildModelMessageBody()
+            var name = WorkflowUtilities.GetBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId);
+            context.Track(new BuildModelTrackingRecord(context.WorkflowInstanceId)
             {
+                BookmarkName = name,
                 ParentItemId = parentItemId,
                 ModelName = modelName,
-                Configuration = configuration
+                Configuration = configuration,
+            });
+
+            context.CreateBookmark
+            (
+                name,
+                OnResumeBookmark
+            );
+        }
+
+        public void OnResumeBookmark(NativeActivityContext context, Bookmark bookmark, object obj)
+        {
+            // When the Bookmark is resumed, assign its value to  
+            // the Result argument.
+
+            var result = obj as DictionaryParameters ?? new DictionaryParameters
+            {
+                { "key1", "value1" },
+                { "key2", 42L },
             };
-
-            var message = new Message(new DefaultMessageHeader(), body);
-
-            var messagingClient = IoC.IoC.DefaultContainer.GetInstance<IMessagingClient>();
-            messagingClient.SendMessage("Arbitrary", message);
-
-
-            // DFTODO - wait for completion
-            // DFTODO - return result
+            Result.Set(context, result);
+            
         }
     }
 }

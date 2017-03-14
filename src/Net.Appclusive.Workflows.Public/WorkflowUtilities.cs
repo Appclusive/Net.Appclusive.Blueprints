@@ -14,26 +14,18 @@
  * limitations under the License.
  */
 
-using System.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Net.Appclusive.Public.Messaging;
+using System;
 
-namespace Net.Appclusive.Workflows.Tests.IoC
+namespace Net.Appclusive.Workflows.Public
 {
-    [TestClass]
-    public class IoCTest
+    public class WorkflowUtilities
     {
-        [TestMethod]
-        public void DefaultContainerConfigurationIsValid()
+
+        public static string GetBookmarkName(Guid workflowInstanceId, string activityId)
         {
-            var sut = Workflows.IoC.IoC.DefaultContainer;
+            const string DELIMITER = "-";
 
-            Trace.WriteLine(sut.WhatDoIHave());
-            Trace.WriteLine(sut.WhatDidIScan());
-            sut.AssertConfigurationIsValid();
-
-            var instance1 = sut.GetInstance<IMessagingClient>();
-            Assert.IsNotNull(instance1);
+            return string.Concat(workflowInstanceId, DELIMITER, activityId, DELIMITER, Guid.NewGuid());
         }
     }
 }
