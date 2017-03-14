@@ -17,7 +17,6 @@
 using System.Activities;
 using System.Diagnostics.Contracts;
 using biz.dfch.CS.Commons;
-using Net.Appclusive.Public.Messaging;
 using Net.Appclusive.Workflows.Public;
 
 namespace Net.Appclusive.Workflows
@@ -49,16 +48,6 @@ namespace Net.Appclusive.Workflows
 
             var configuration = context.GetValue(Configuration);
             Contract.Assert(null != configuration);
-
-            //var body = new BuildModelMessageBody()
-            //{
-            //    ParentItemId = parentItemId,
-            //    ModelName = modelName,
-            //    Configuration = configuration
-            //};
-            //var message = new Message(new DefaultMessageHeader(), body);
-            //var messagingClient = IoC.IoC.DefaultContainer.GetInstance<IMessagingClient>();
-            //messagingClient.SendMessage("Arbitrary", message);
 
             var name = WorkflowUtilities.GetBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId);
             context.Track(new BuildModelTrackingRecord(context.WorkflowInstanceId)
