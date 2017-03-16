@@ -32,7 +32,6 @@
       <AssemblyReference>biz.dfch.CS.Commons</AssemblyReference>
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
-      <AssemblyReference>StructureMap</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Annotations</AssemblyReference>
@@ -47,7 +46,6 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
-      <AssemblyReference>Net.Appclusive.Public</AssemblyReference>
       <AssemblyReference>Net.Appclusive.Workflows.Public</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>Net.Appclusive.Workflows</AssemblyReference>
@@ -131,7 +129,7 @@
     </Parallel>
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1">
       <InArgument x:TypeArguments="x:String">
-        <mca:CSharpValue x:TypeArguments="x:String">buildModelResult.GetOrDefault("modelName","defaultValue").ToString();</mca:CSharpValue>
+        <mca:CSharpValue x:TypeArguments="x:String">"tralala";</mca:CSharpValue>
       </InArgument>
     </WriteLine>
     <Parallel sap2010:WorkflowViewState.IdRef="Parallel_2">
@@ -173,7 +171,7 @@
         </InArgument>
       </local:ReturnResult.ParentItemId>
     </local:ReturnResult>
-    <sads:DebugSymbol.Symbol>d1RDOlxzcmNcTmV0LkFwcGNsdXNpdmUuQmx1ZXByaW50c1xzcmNcTmV0LkFwcGNsdXNpdmUuV29ya2Zsb3dzXFJlY3RhbmdsZUFjdGl2aXR5LnhhbWwiOAOxAQ4CAQE9BUgOAgFwSQVXDgIBY1gFgwEQAgEzhAEFiAERAgEsiQEFngEQAgEVnwEFrwEaAgECRQtFZwIBd0ALQHoCAXFRC1QVAgFqTAtMegIBZFkHaRoCAVBqB4IBEgIBNIYBCYYBjAECAS2KAQecARICARidAQedAVECARasAQusAVQCAQ+nAQunAVICAQmiAQuiAWcCAQNmDWZWAgFdYQ1hVAIBV1wNXGkCAVFrCWtTAgFObAmBARwCATWLAQmbARwCARmdAUqdAU4CARdrTGtQAgFPeQ95WAIBSHQPdFYCAUJ+D352AgE8bw9vawIBNpgBD5gBWAIBJpMBD5MBVgIBII4BD44BawIBGg==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d1RDOlxzcmNcTmV0LkFwcGNsdXNpdmUuQmx1ZXByaW50c1xzcmNcTmV0LkFwcGNsdXNpdmUuV29ya2Zsb3dzXFJlY3RhbmdsZUFjdGl2aXR5LnhhbWwiNgOvAQ4CAQE7BUYOAgFwRwVVDgIBY1YFgQEQAgEzggEFhgERAgEshwEFnAEQAgEVnQEFrQEaAgECQwtDZwIBdz4LPnoCAXFPC1IVAgFqSgtKegIBZFcHZxoCAVBoB4ABEgIBNIQBCYQBUQIBLYgBB5oBEgIBGJsBB5sBUQIBFqoBC6oBVAIBD6UBC6UBUgIBCaABC6ABZwIBA2QNZFYCAV1fDV9UAgFXWg1aaQIBUWkJaVMCAU5qCX8cAgE1iQEJmQEcAgEZmwFKmwFOAgEXaUxpUAIBT3cPd1gCAUhyD3JWAgFCfA98dgIBPG0PbWsCATaWAQ+WAVgCASaRAQ+RAVYCASCMAQ+MAWsCARo=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
