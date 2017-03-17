@@ -76,7 +76,6 @@ namespace Net.Appclusive.Workflows
                 { "key2", 42L },
             };
             Result.Set(context, result);
-            
         }
     }
 }
