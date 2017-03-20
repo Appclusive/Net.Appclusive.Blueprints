@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Copyright 2017 d-fens GmbH
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +14,27 @@
  * limitations under the License.
  */
 
-using System.Activities;
+using System;
+using System.Activities.Tracking;
+using System.Diagnostics;
 using biz.dfch.CS.Commons;
 
 namespace Net.Appclusive.Workflows.Public
 {
-    public interface IBuildModel
+    public class InitialiseModelTrackingRecord : CustomTrackingRecord
     {
-        InArgument<long> ParentItemId { get; set; }
-        InArgument<string> ModelName { get; set; }
-        InArgument<DictionaryParameters> Configuration { get; set; }
+        public InitialiseModelTrackingRecord(Guid instanceId)
+            : base(instanceId, typeof(InitialiseModelTrackingRecord).FullName, TraceLevel.Info)
+        {
+            // N/A
+        }
+
+        public string BookmarkName { get; set; }
+
+        public long ParentItemId { get; set; }
+
+        public string ModelName { get; set; }
+
+        public DictionaryParameters Configuration { get; set; }
     }
 }

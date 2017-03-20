@@ -21,7 +21,7 @@ using Net.Appclusive.Workflows.Public;
 
 namespace Net.Appclusive.Workflows
 {
-    public sealed class BuildModel : NativeActivity<DictionaryParameters>, IBuildModel
+    public sealed class InitialiseModel : NativeActivity<DictionaryParameters>, IInitialiseModel
     {
         [RequiredArgument]
         public InArgument<long> ParentItemId { get; set; }
@@ -50,7 +50,7 @@ namespace Net.Appclusive.Workflows
             Contract.Assert(null != configuration);
 
             var name = WorkflowUtilities.GetBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId);
-            context.Track(new BuildModelTrackingRecord(context.WorkflowInstanceId)
+            context.Track(new InitialiseModelTrackingRecord(context.WorkflowInstanceId)
             {
                 BookmarkName = name,
                 ParentItemId = parentItemId,

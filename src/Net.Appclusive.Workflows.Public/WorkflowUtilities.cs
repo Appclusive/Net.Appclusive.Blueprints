@@ -25,7 +25,7 @@ namespace Net.Appclusive.Workflows.Public
         {
             const string DELIMITER = "-";
 
-            return string.Concat(workflowInstanceId, DELIMITER, activityId, DELIMITER, Guid.NewGuid());
+            return string.Concat(workflowInstanceId, DELIMITER, activityId);
         }
     }
 }

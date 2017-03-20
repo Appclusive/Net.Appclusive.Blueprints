@@ -1,0 +1,92 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Net.Appclusive.Workflows.SimpleBlueprint"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:bdcc="clr-namespace:biz.dfch.CS.Commons;assembly=biz.dfch.CS.Commons"
+ xmlns:local="clr-namespace:Net.Appclusive.Workflows;assembly=Net.Appclusive.Workflows"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ParentItemId" Type="InArgument(x:Int64)" />
+    <x:Property Name="ModelName" Type="InArgument(x:String)" />
+    <x:Property Name="Configuration" Type="InArgument(bdcc:DictionaryParameters)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>Net.Appclusive.Workflows.SimpleBlueprint_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>biz.dfch.CS.Commons</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>biz.dfch.CS.Commons</AssemblyReference>
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Annotations</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.DataAnnotations</AssemblyReference>
+      <AssemblyReference>System.Configuration</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Net.Appclusive.Workflows.Public</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Net.Appclusive.Workflows</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SimpleBlueprint" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <local:InitialiseModel sap2010:WorkflowViewState.IdRef="InitialiseModel_2">
+      <local:InitialiseModel.Configuration>
+        <InArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpValue x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpValue>
+        </InArgument>
+      </local:InitialiseModel.Configuration>
+      <local:InitialiseModel.ModelName>
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">ModelName</mca:CSharpValue>
+        </InArgument>
+      </local:InitialiseModel.ModelName>
+      <local:InitialiseModel.ParentItemId>
+        <InArgument x:TypeArguments="x:Int64">
+          <mca:CSharpValue x:TypeArguments="x:Int64">ParentItemId</mca:CSharpValue>
+        </InArgument>
+      </local:InitialiseModel.ParentItemId>
+      <local:InitialiseModel.Result>
+        <OutArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpReference x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpReference>
+        </OutArgument>
+      </local:InitialiseModel.Result>
+    </local:InitialiseModel>
+    <sads:DebugSymbol.Symbol>d1JDOlxzcmNcTmV0LkFwcGNsdXNpdmUuQmx1ZXByaW50c1xzcmNcTmV0LkFwcGNsdXNpdmUuV29ya2Zsb3dzXFNpbXBsZUJsdWVwcmludC54YW1sBjYDTg4CAQE3BUwdAgECRAtEVAIBDz8LP1ICAQtJC0lvAgEHOgs6ZwIBAw==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="InitialiseModel_2" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222,146">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Net.Appclusive.Workflows.SimpleBlueprint_1" sap:VirtualizedContainerService.HintSize="262,226" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

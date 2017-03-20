@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright 2017 d-fens GmbH
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,21 +15,14 @@
  */
 
 using System.Activities;
+using biz.dfch.CS.Commons;
 
-namespace Net.Appclusive.Workflows
+namespace Net.Appclusive.Workflows.Public
 {
-
-    public sealed class Sleeper : CodeActivity
+    public interface IInitialiseModel
     {
-        // Define an activity input argument of type string
-        public InArgument<int> Seconds { get; set; }
-
-        // If your activity returns a value, derive from CodeActivity<TResult>
-        // and return the value from the Execute method.
-        protected override void Execute(CodeActivityContext context)
-        {
-            var seconds = context.GetValue(Seconds);
-            System.Threading.Thread.Sleep(seconds * 1000);
-        }
+        InArgument<long> ParentItemId { get; set; }
+        InArgument<string> ModelName { get; set; }
+        InArgument<DictionaryParameters> Configuration { get; set; }
     }
 }
