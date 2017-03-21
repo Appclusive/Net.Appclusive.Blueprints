@@ -144,6 +144,9 @@
     <Compile Include="..\CommonAssemblySettings.cs">
       <Link>Properties\CommonAssemblySettings.cs</Link>
     </Compile>
+    <Compile Include="ApprovalTrackingRecord.cs" />
+    <Compile Include="AppclusiveTrackingRecord.cs" />
+    <Compile Include="InitialiseBlueprintTrackingRecord.cs" />
     <Compile Include="InitialiseModelTrackingRecord.cs" />
     <Compile Include="IInitialiseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

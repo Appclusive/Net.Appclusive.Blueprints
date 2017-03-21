@@ -15,22 +15,22 @@
  */
 
 using System;
-using biz.dfch.CS.Commons;
+using System.Activities.Tracking;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 
 namespace Net.Appclusive.Workflows.Public
 {
-    public sealed class InitialiseModelTrackingRecord : AppclusiveTrackingRecord
+    public abstract class AppclusiveTrackingRecord : CustomTrackingRecord
     {
-        public InitialiseModelTrackingRecord(Guid instanceId)
-            : base(instanceId)
+        protected AppclusiveTrackingRecord(Guid instanceId)
+            : base(instanceId, typeof(InitialiseBlueprintTrackingRecord).FullName, TraceLevel.Info)
         {
             // N/A
         }
 
-        public long ParentItemId { get; set; }
+        [Required]
+        public string BookmarkName { get; set; }
 
-        public string ModelName { get; set; }
-
-        public DictionaryParameters Configuration { get; set; }
     }
 }

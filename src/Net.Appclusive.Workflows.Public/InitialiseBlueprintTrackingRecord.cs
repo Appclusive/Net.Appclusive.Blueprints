@@ -19,13 +19,15 @@ using biz.dfch.CS.Commons;
 
 namespace Net.Appclusive.Workflows.Public
 {
-    public sealed class InitialiseModelTrackingRecord : AppclusiveTrackingRecord
+    public sealed class InitialiseBlueprintTrackingRecord : AppclusiveTrackingRecord
     {
-        public InitialiseModelTrackingRecord(Guid instanceId)
+        public InitialiseBlueprintTrackingRecord(Guid instanceId)
             : base(instanceId)
         {
             // N/A
         }
+
+        public string BookmarkName { get; set; }
 
         public long ParentItemId { get; set; }
 
