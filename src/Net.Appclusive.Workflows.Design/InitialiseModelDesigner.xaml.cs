@@ -19,10 +19,10 @@ using System.ComponentModel;
 
 namespace Net.Appclusive.Workflows.Design
 {
-    // Interaction logic for BuildModelDesigner.xaml
-    public partial class BuildModelDesigner
+    // Interaction logic for InitialiseModelDesigner.xaml
+    public partial class InitialModelDesigner
     {
-        public BuildModelDesigner()
+        public InitialModelDesigner()
         {
             InitializeComponent();
         }
@@ -30,9 +30,9 @@ namespace Net.Appclusive.Workflows.Design
         public static void RegisterMetadata(AttributeTableBuilder attributeTableBuilder)
         {
             attributeTableBuilder.AddCustomAttributes(
-                typeof(BuildModel),
-                new DesignerAttribute(typeof(BuildModelDesigner)),
-                new DescriptionAttribute("Build Model"));
+                typeof(InitialiseModel),
+                new DesignerAttribute(typeof(InitialModelDesigner)),
+                new DescriptionAttribute("Initialise Model"));
         }
     }
 }

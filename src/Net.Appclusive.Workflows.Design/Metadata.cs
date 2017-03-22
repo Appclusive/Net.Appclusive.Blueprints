@@ -29,7 +29,7 @@ namespace Net.Appclusive.Workflows.Design
         {
             var attributeTableBuilder = new AttributeTableBuilder();
 
-            BuildModelDesigner.RegisterMetadata(attributeTableBuilder);
+            InitialModelDesigner.RegisterMetadata(attributeTableBuilder);
 
             MetadataStore.AddAttributeTable(attributeTableBuilder.CreateTable());
         }

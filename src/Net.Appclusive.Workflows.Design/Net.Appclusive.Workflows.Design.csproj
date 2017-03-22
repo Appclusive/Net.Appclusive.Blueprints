@@ -157,8 +157,8 @@
     <Compile Include="..\CommonAssemblySettings.cs">
       <Link>Properties\CommonAssemblySettings.cs</Link>
     </Compile>
-    <Compile Include="BuildModelDesigner.xaml.cs">
-      <DependentUpon>BuildModelDesigner.xaml</DependentUpon>
+    <Compile Include="InitialiseModelDesigner.xaml.cs">
+      <DependentUpon>InitialiseModelDesigner.xaml</DependentUpon>
     </Compile>
     <Compile Include="Metadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -183,13 +183,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="build-model.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="BuildModelDesigner.xaml">
+    <Page Include="InitialiseModelDesigner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="InitialiseModel.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
