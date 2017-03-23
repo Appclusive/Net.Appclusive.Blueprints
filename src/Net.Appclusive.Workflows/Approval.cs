@@ -15,17 +15,16 @@
  */
 
 using System.Activities;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Linq;
 using biz.dfch.CS.Commons;
 using Net.Appclusive.Workflows.Public;
 
 namespace Net.Appclusive.Workflows
 {
-    public sealed class Approval : NativeActivity<DictionaryParameters>, IInitialiseModel
+    public sealed class Approval : NativeActivity<DictionaryParameters>
     {
-        [RequiredArgument]
-        public InArgument<long> ParentItemId { get; set; }
-
         [RequiredArgument]
         public InArgument<string> ModelName { get; set; }
 
@@ -40,29 +39,29 @@ namespace Net.Appclusive.Workflows
         {
             Contract.Assert(null != context);
 
-            var parentItemId = context.GetValue(ParentItemId);
-            Contract.Assert(0 < parentItemId);
-
             var modelName = context.GetValue(ModelName);
             Contract.Assert(!string.IsNullOrWhiteSpace(modelName));
 
             var configuration = context.GetValue(Configuration);
             Contract.Assert(null != configuration);
 
-            var name = WorkflowUtilities.GetBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId);
-            context.Track(new InitialiseModelTrackingRecord(context.WorkflowInstanceId)
-            {
-                BookmarkName = name,
-                ParentItemId = parentItemId,
-                ModelName = modelName,
-                Configuration = configuration,
-            });
+            // DFTODO - remove once we get this from order / outside
+            configuration.Add("Net.Appclusive.Public.GlobalAttributes.ApproverRoleName.1", "CreatorsOwners");
 
-            context.CreateBookmark
-            (
-                name,
-                OnResumeBookmark
-            );
+            foreach (KeyValuePair<string, object> pair in configuration.Where(e => e.Key.StartsWith("Net.Appclusive.Public.GlobalAttributes.ApproverRoleName.")))
+            {
+                var name = WorkflowUtilities.GetBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId);
+                context.Track(new ApprovalTrackingRecord(context.WorkflowInstanceId)
+                {
+                    BookmarkName = name,
+                });
+
+                context.CreateBookmark
+                (
+                    name,
+                    OnResumeBookmark
+                );
+            }
         }
 
         public void OnResumeBookmark(NativeActivityContext context, Bookmark bookmark, object obj)

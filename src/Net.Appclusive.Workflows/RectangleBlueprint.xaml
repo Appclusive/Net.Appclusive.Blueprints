@@ -56,6 +56,24 @@
       <Variable x:TypeArguments="bdcc:DictionaryParameters" Name="buildModelResult" />
       <Variable x:TypeArguments="bdcc:DictionaryParameters" Name="transformedConfiguration" />
     </Sequence.Variables>
+    <local:Approval>
+      <local:Approval.Configuration>
+        <InArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpValue x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpValue>
+        </InArgument>
+      </local:Approval.Configuration>
+      <local:Approval.ModelName>
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">ModelName</mca:CSharpValue>
+        </InArgument>
+      </local:Approval.ModelName>
+      <local:Approval.Result>
+        <OutArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpReference x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpReference>
+        </OutArgument>
+      </local:Approval.Result>
+      <sap2010:WorkflowViewState.IdRef>Approval_2</sap2010:WorkflowViewState.IdRef>
+    </local:Approval>
     <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="bdcc:DictionaryParameters">
@@ -170,12 +188,13 @@
         </local:InitialiseModel>
       </Sequence>
     </Parallel>
-    <sads:DebugSymbol.Symbol>d1VDOlxzcmNcTmV0LkFwcGNsdXNpdmUuQmx1ZXByaW50c1xzcmNcTmV0LkFwcGNsdXNpdmUuV29ya2Zsb3dzXFJlY3RhbmdsZUJsdWVwcmludC54YW1sHzYDrgEOAgEBOwVGDgIBbUcFVQ4CAWBWBZYBEAIBGZcBBZcBTwIBF5gBBawBEAIBAkMLQ2cCAXQ+Cz56AgFuTwtSFQIBZ0oLSnoCAWFXB2cfAgFNaAeVARICARqXAUOXAUwCARiZAQerARICAQNkDWRWAgFaXw1fVAIBVFoNWmkCAU5pCX4hAgE0fwmUASECARuaAQmqASECAQR2D3ZYAgFHcQ9xVgIBQXsPe3YCATtsD2xrAgE1jAEPjAFYAgEuhwEPhwFWAgEokQEPkQF2AgEiggEPggFrAgEcpwEPpwFYAgERogEPogFWAgELnQEPnQFrAgEF</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d1VDOlxzcmNcTmV0LkFwcGNsdXNpdmUuQmx1ZXByaW50c1xzcmNcTmV0LkFwcGNsdXNpdmUuV29ya2Zsb3dzXFJlY3RhbmdsZUJsdWVwcmludC54YW1sIzYDwAEOAgEBOwVMFgIBek0FWA4CAW1ZBWcOAgFgaAWoARACARmpAQWpAU8CAReqAQW+ARACAQJDC0NSAwGHAUgLSG8DAYEBPgs+ZwIBe1ULVWcCAXRQC1B6AgFuYQtkFQIBZ1wLXHoCAWFpB3kfAgFNegenARICARqpAUOpAUwCARirAQe9ARICAQN2DXZWAgFacQ1xVAIBVGwNbGkCAU57CZABIQIBNJEBCaYBIQIBG6wBCbwBIQIBBIgBD4gBWAIBR4MBD4MBVgIBQY0BD40BdgIBO34PfmsCATWeAQ+eAVgCAS6ZAQ+ZAVYCASijAQ+jAXYCASKUAQ+UAWsCARy5AQ+5AVgCARG0AQ+0AVYCAQuvAQ+vAWsCAQU=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="576,62" />
-      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="576,62" />
+      <sap2010:ViewStateData Id="Approval_2" sap:VirtualizedContainerService.HintSize="336,22" />
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="336,62" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="336,62" />
       <sap2010:ViewStateData Id="InitialiseModel_1" sap:VirtualizedContainerService.HintSize="200,208" />
       <sap2010:ViewStateData Id="InitialiseModel_2" sap:VirtualizedContainerService.HintSize="200,22" />
       <sap2010:ViewStateData Id="InitialiseModel_5" sap:VirtualizedContainerService.HintSize="200,22" />
@@ -186,8 +205,15 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Parallel_1" sap:VirtualizedContainerService.HintSize="576,254" />
-      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="576,62" />
+      <sap2010:ViewStateData Id="Parallel_1" sap:VirtualizedContainerService.HintSize="336,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="336,62" />
       <sap2010:ViewStateData Id="InitialiseModel_4" sap:VirtualizedContainerService.HintSize="200,22" />
       <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="222,146">
         <sap:WorkflowViewStateService.ViewState>
@@ -196,15 +222,15 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Parallel_2" sap:VirtualizedContainerService.HintSize="576,192" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="598,916">
+      <sap2010:ViewStateData Id="Parallel_2" sap:VirtualizedContainerService.HintSize="336,192" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="358,775">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Net.Appclusive.Examples.RectangleActivity_1" sap:VirtualizedContainerService.HintSize="638,996" />
+      <sap2010:ViewStateData Id="Net.Appclusive.Examples.RectangleActivity_1" sap:VirtualizedContainerService.HintSize="398,855" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

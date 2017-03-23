@@ -27,8 +27,6 @@ namespace Net.Appclusive.Workflows.Public
             // N/A
         }
 
-        public string BookmarkName { get; set; }
-
         public long ParentItemId { get; set; }
 
         public string ModelName { get; set; }

@@ -52,6 +52,24 @@
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="SimpleBlueprint" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <local:Approval>
+      <local:Approval.Configuration>
+        <InArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpValue x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpValue>
+        </InArgument>
+      </local:Approval.Configuration>
+      <local:Approval.ModelName>
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">ModelName</mca:CSharpValue>
+        </InArgument>
+      </local:Approval.ModelName>
+      <local:Approval.Result>
+        <OutArgument x:TypeArguments="bdcc:DictionaryParameters">
+          <mca:CSharpReference x:TypeArguments="bdcc:DictionaryParameters">Configuration</mca:CSharpReference>
+        </OutArgument>
+      </local:Approval.Result>
+      <sap2010:WorkflowViewState.IdRef>Approval_2</sap2010:WorkflowViewState.IdRef>
+    </local:Approval>
     <local:InitialiseModel sap2010:WorkflowViewState.IdRef="InitialiseModel_2">
       <local:InitialiseModel.Configuration>
         <InArgument x:TypeArguments="bdcc:DictionaryParameters">
@@ -74,19 +92,20 @@
         </OutArgument>
       </local:InitialiseModel.Result>
     </local:InitialiseModel>
-    <sads:DebugSymbol.Symbol>d1JDOlxzcmNcTmV0LkFwcGNsdXNpdmUuQmx1ZXByaW50c1xzcmNcTmV0LkFwcGNsdXNpdmUuV29ya2Zsb3dzXFNpbXBsZUJsdWVwcmludC54YW1sBjYDTg4CAQE3BUwdAgECRAtEVAIBDz8LP1ICAQtJC0lvAgEHOgs6ZwIBAw==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d1JDOlxzcmNcTmV0LkFwcGNsdXNpdmUuQmx1ZXByaW50c1xzcmNcTmV0LkFwcGNsdXNpdmUuV29ya2Zsb3dzXFNpbXBsZUJsdWVwcmludC54YW1sCjYDYA4CAQE3BUgWAgETSQVeHQIBAj8LP1ICARxEC0RvAgEYOgs6ZwIBFFYLVlQCAQ9RC1FSAgELWwtbbwIBB0wLTGcCAQM=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Approval_2" sap:VirtualizedContainerService.HintSize="200,22" />
       <sap2010:ViewStateData Id="InitialiseModel_2" sap:VirtualizedContainerService.HintSize="200,22" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222,146">
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222,208">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Net.Appclusive.Workflows.SimpleBlueprint_1" sap:VirtualizedContainerService.HintSize="262,226" />
+      <sap2010:ViewStateData Id="Net.Appclusive.Workflows.SimpleBlueprint_1" sap:VirtualizedContainerService.HintSize="262,288" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
