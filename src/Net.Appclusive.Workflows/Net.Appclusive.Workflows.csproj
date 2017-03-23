@@ -161,9 +161,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="InitialiseModel.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Net.Appclusive.Workflows.Public\Net.Appclusive.Workflows.Public.csproj">
       <Project>{ca5cc367-8756-4475-980b-e7f04d33cd9c}</Project>
       <Name>Net.Appclusive.Workflows.Public</Name>
