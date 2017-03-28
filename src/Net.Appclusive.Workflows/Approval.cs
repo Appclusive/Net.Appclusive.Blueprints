@@ -50,7 +50,7 @@ namespace Net.Appclusive.Workflows
 
             foreach (KeyValuePair<string, object> pair in configuration.Where(e => e.Key.StartsWith("Net.Appclusive.Public.GlobalAttributes.ApproverRoleName.")))
             {
-                var name = WorkflowUtilities.GetBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId);
+                var name = WorkflowUtilities.GetApprovalBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId, pair.Key);
                 context.Track(new ApprovalTrackingRecord(context.WorkflowInstanceId)
                 {
                     BookmarkName = name,

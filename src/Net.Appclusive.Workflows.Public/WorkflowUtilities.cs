@@ -15,17 +15,24 @@
  */
 
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Net.Appclusive.Workflows.Public
 {
     public class WorkflowUtilities
     {
+        private const string DELIMITER = "-";
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string GetBookmarkName(Guid workflowInstanceId, string activityId)
         {
-            const string DELIMITER = "-";
-
             return string.Concat(workflowInstanceId, DELIMITER, activityId);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static string GetApprovalBookmarkName(Guid workflowInstanceId, string activityId, string approverAttributeName)
+        {
+            return string.Concat(workflowInstanceId, DELIMITER, activityId, DELIMITER, approverAttributeName);
         }
     }
 }
