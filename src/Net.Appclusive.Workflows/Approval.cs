@@ -14,12 +14,15 @@
  * limitations under the License.
  */
 
+using System;
 using System.Activities;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using biz.dfch.CS.Commons;
+using Net.Appclusive.Public.Domain.Control;
 using Net.Appclusive.Workflows.Public;
+using ApprovalAttributes = Net.Appclusive.Public.Constants.Approval;
 
 namespace Net.Appclusive.Workflows
 {
@@ -46,9 +49,14 @@ namespace Net.Appclusive.Workflows
             Contract.Assert(null != configuration);
 
             // DFTODO - remove once we get this from order / outside
-            configuration.Add("Net.Appclusive.Public.GlobalAttributes.ApproverRoleName.1", "CreatorsOwners");
+            configuration.Add(ApprovalAttributes.Approval0.RoleId, 1);
+            configuration.Add(ApprovalAttributes.Approval0.RelativeExpiration, TimeSpan.FromDays(7));
+            configuration.Add(ApprovalAttributes.Approval0.Type, ApprovalType.AutoDecline);
 
-            foreach (KeyValuePair<string, object> pair in configuration.Where(e => e.Key.StartsWith("Net.Appclusive.Public.GlobalAttributes.ApproverRoleName.")))
+            configuration.Add(ApprovalAttributes.Approval1.UserId, 1);
+            configuration.Add(ApprovalAttributes.Approval1.AbsoluteExpiration, DateTimeOffset.MaxValue);
+
+            foreach (KeyValuePair<string, object> pair in configuration.Where(e => e.Key.StartsWith(ApprovalAttributes.PREFIX)))
             {
                 var name = WorkflowUtilities.GetApprovalBookmarkName(context.WorkflowInstanceId, context.ActivityInstanceId, pair.Key);
                 context.Track(new ApprovalTrackingRecord(context.WorkflowInstanceId)
