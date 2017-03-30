@@ -15,7 +15,6 @@
  */
 
 using System;
-using System.Activities;
 using System.ComponentModel.DataAnnotations;
 
 namespace Net.Appclusive.Workflows.Public
