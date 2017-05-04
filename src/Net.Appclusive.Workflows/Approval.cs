@@ -18,7 +18,6 @@ using System;
 using System.Activities;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.Linq;
 using System.Reflection;
 using biz.dfch.CS.Commons;
 using biz.dfch.CS.Commons.Converters;
